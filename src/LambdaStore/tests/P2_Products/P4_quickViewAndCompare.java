@@ -1,3 +1,5 @@
+package tests.P2_Products;
+
 import io.guyrob.lambda.ProductPages.HomePage;
 import io.guyrob.lambda.base;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,13 +10,10 @@ import tests.testdata;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * navigation between pages
- */
-public class P1_sectionsAndNavigation extends base {
+public class P4_quickViewAndCompare extends base {
+
 
     HomePage homepage;
-
 
     @BeforeClass
     public void beforeClass(){
@@ -25,6 +24,7 @@ public class P1_sectionsAndNavigation extends base {
         driver.get(testdata.url);
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
     }
 
     @AfterClass
@@ -33,13 +33,19 @@ public class P1_sectionsAndNavigation extends base {
     }
 
     @Test
-    public void P1_Categories(){
-
+    public void P1_searchModel(){
     }
 
     @Test
-    public void P2_GoCart(){
-
+    public void P2_quickViewProducts(){
+        // Maybe there is a bug on some product quick view
     }
 
+    @Test
+    public void P3_addCompare(){
+    }
+
+    @Test
+    public void P4_productComparison(){
+    }
 }

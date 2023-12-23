@@ -1,5 +1,3 @@
-package tests.P3_Authentication;
-
 import io.guyrob.lambda.ProductPages.HomePage;
 import io.guyrob.lambda.base;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,8 +8,10 @@ import tests.testdata;
 
 import java.util.concurrent.TimeUnit;
 
-public class P2_login extends base {
+public class P4_blog extends base {
+
     HomePage homepage;
+
 
     @BeforeClass
     public void beforeClass(){
@@ -25,19 +25,28 @@ public class P2_login extends base {
 
     }
 
-    // TODO check if there is an option to call "P2_login" and control when quit after class and when not (to reuse code)
     @AfterClass
     public void afterClass() {
 //        driver.quit();
     }
 
     @Test
-    public void P1_myAccount(){
-
+    public void P1_fromTheBlog(){
+        // Select from section in homepage
     }
 
     @Test
-    public void P2_login(){
+    public void P2_showMoreAndLess(){
+        // Bug - can click twice on show more, but only once on show less
+    }
+
+    @Test
+    public void P3_viewCommentAndReplies(){
+        // View replies (1), and view all comments
+    }
+
+    @Test
+    public void P4_postComment(){
 
     }
 }

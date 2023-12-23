@@ -1,5 +1,3 @@
-package tests.P3_Authentication;
-
 import io.guyrob.lambda.ProductPages.HomePage;
 import io.guyrob.lambda.base;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,8 +8,13 @@ import tests.testdata;
 
 import java.util.concurrent.TimeUnit;
 
-public class P2_login extends base {
+/**
+ * navigation between pages
+ */
+public class P1_sections extends base {
+
     HomePage homepage;
+
 
     @BeforeClass
     public void beforeClass(){
@@ -25,19 +28,37 @@ public class P2_login extends base {
 
     }
 
-    // TODO check if there is an option to call "P2_login" and control when quit after class and when not (to reuse code)
     @AfterClass
     public void afterClass() {
 //        driver.quit();
     }
 
     @Test
-    public void P1_myAccount(){
+    public void P1_slider(){
 
     }
 
     @Test
-    public void P2_login(){
+    public void P2_trendingCategories(){
 
     }
+
+    @Test
+    public void P3_topProducts(){
+
+    }
+
+    @Test
+    public void P4_collection(){
+
+    }
+
+    // Maybe add a test that checks the banner size (above top products) - the image size is smaller than banner size (bug)
+//    @Test
+//    public void P5_bannerSize(){
+//
+//    }
+
+
+
 }

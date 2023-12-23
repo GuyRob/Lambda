@@ -10,7 +10,7 @@ import tests.testdata;
 
 import java.util.concurrent.TimeUnit;
 
-public class P2_login extends base {
+public class P7_historyAndReturn extends base {
     HomePage homepage;
 
     @BeforeClass
@@ -25,11 +25,13 @@ public class P2_login extends base {
 
     }
 
-    // TODO check if there is an option to call "P2_login" and control when quit after class and when not (to reuse code)
     @AfterClass
     public void afterClass() {
 //        driver.quit();
     }
+
+    // TODO check if there is an option to call "P2_Login" class before tests
+    //
 
     @Test
     public void P1_myAccount(){
@@ -37,7 +39,22 @@ public class P2_login extends base {
     }
 
     @Test
-    public void P2_login(){
+    public void P2_orderHistroy(){
+    }
+
+    @Test
+    public void P3_viewOrder(){
+    }
+
+    @Test
+    public void P4_reOrder(){
+    }
+
+    @Test
+    public void P5_returnProduct(){
 
     }
+
+
+
 }

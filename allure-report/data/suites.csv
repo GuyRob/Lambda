@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Mon Dec 11 20:52:21 IST 2023","Mon Dec 11 20:52:21 IST 2023","4","Default Suite","VueStore","P1_sectionsAndNavigation","P1_sectionsAndNavigation","P1_searchHotel","P1_searchHotel",""
+"passed","Mon Dec 11 20:52:21 IST 2023","Mon Dec 11 20:52:21 IST 2023","4","Default Suite","VueStore","P1_sections","P1_sections","P1_searchHotel","P1_searchHotel",""

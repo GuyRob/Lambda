@@ -1,5 +1,3 @@
-package tests.P3_Authentication;
-
 import io.guyrob.lambda.ProductPages.HomePage;
 import io.guyrob.lambda.base;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,8 +8,10 @@ import tests.testdata;
 
 import java.util.concurrent.TimeUnit;
 
-public class P2_login extends base {
+public class P3_navigation extends base {
+
     HomePage homepage;
+
 
     @BeforeClass
     public void beforeClass(){
@@ -25,19 +25,39 @@ public class P2_login extends base {
 
     }
 
-    // TODO check if there is an option to call "P2_login" and control when quit after class and when not (to reuse code)
     @AfterClass
     public void afterClass() {
 //        driver.quit();
     }
 
     @Test
-    public void P1_myAccount(){
+    public void P1_home(){
 
     }
 
     @Test
-    public void P2_login(){
+    public void P2_special(){
 
     }
+
+    @Test
+    public void P3_blog(){
+
+    }
+
+    @Test
+    public void P4_megaMenu(){
+        // Bug - instead of leading to mega menu leads to about us
+    }
+
+    @Test
+    public void P5_addons(){
+        // Bug - not leads to any page
+    }
+
+    @Test
+    public void P6_myAccount(){
+
+    }
+
 }
