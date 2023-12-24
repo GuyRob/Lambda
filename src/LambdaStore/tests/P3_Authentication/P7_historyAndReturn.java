@@ -28,6 +28,8 @@ public class P7_historyAndReturn extends base {
     @AfterClass
     public void afterClass() {
 //        driver.quit();
+        //        driver.quit();
+
     }
 
     // TODO check if there is an option to call "P2_Login" class before tests
