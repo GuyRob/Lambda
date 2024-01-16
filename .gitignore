@@ -5,3 +5,4 @@
 
 /target/
 allure-report/data/
+allure-report/widgets/categories-trend.json
