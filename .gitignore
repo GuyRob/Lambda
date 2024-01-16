@@ -1,7 +1,5 @@
 # Project exclude paths
 /allure-results/
 /allure-report/
-allure-report/
-allure-report\
 
 /target/
