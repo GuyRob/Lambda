@@ -30,7 +30,7 @@ public class P2_search  extends base {
 
     @Test
     public void P1_ipod(){
-
+        homepage.search("ipod");
     }
 
     @Test

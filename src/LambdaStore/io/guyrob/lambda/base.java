@@ -110,7 +110,6 @@ public class base {
 
     public static void allure_LogAttachment(String info, String folder, String name) {
         screenShot(folder, name);
-        System.out.println("Allure attachment added successfully for " + info);
         String imagePath = "src\\ExtFiles\\screenShots\\" + folder + "\\" + name + ".png";
         Path imageFilePath = Paths.get(imagePath);
 
