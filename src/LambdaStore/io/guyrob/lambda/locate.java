@@ -32,8 +32,24 @@ public class locate {
 
     public static By HP_btn_coll_qv_Exit = By.xpath("//div[@id='quick-view']//button[@aria-label='close']");
 
+    // blog
+    public static By HP_list_blog_Categories = By.xpath("//div[@id='mz-article-tab-73213272-0']//div[@role]");
+
     /** SearchPage */
     public static By SP_txt_Searched = By.xpath("//div[@id='product-search']//h1");
     public static By SP_list_Products = By.xpath("//div[@data-view_id='grid']//div[@class='product-thumb']");
     public static By SP_txt_Products_disc = By.xpath("//div[@id='entry_212469']//p");
+
+    /** ProductPage*/
+    public static By PP_txt_category = By.xpath("//ol[@class='breadcrumb']");
+
+    // blog
+    public static By PP_btn_blog_ReadMore = By.xpath("//div[@id='article-article']//a[@href='#']");
+    public static By PP_inp_blog_cmd = By.id("input-comment");
+    public static By PP_inp_blog_cmd_name = By.xpath("//form[@id='form-comment']//input[@name='name']");
+    public static By PP_inp_blog_cmd_mail = By.xpath("//form[@id='form-comment']//input[@name='email']");
+    public static By PP_btn_blog_cmd = By.id("button-comment");
+
+
+    public static By PP_txt_blog_CommentApproval = By.xpath("//div[@class='alert alert-success alert-dismissible']");
 }

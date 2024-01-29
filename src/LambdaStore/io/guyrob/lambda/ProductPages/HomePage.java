@@ -114,5 +114,17 @@ public class HomePage extends base {
     }
 
 
+    // blog
+    public boolean blog_SelectIndex(int i) {
+        sleep(1000);
+        List<WebElement> categories = driver.findElements(locate.HP_list_blog_Categories);
+        if(categories.get(i-1).isDisplayed()) {
+            categories.get(i - 1).click();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
