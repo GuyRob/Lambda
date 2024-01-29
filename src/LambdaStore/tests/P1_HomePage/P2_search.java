@@ -33,11 +33,16 @@ public class P2_search  extends base {
     }
 
     @Test
-    public void P1_ipod(){ // TODO add screenshots and logs
+    public void P1_ipod(){
         String searchedText = "ipod";
+        allure_Log("Search " + searchedText);
         homepage.search(searchedText);
+
         boolean searched = searchPage.getSearch().contains(searchedText);
         boolean searchedProductContains = searchPage.getProductName(searchPage.getProducts().get(1)).toLowerCase().contains(searchedText);
+
+        screenShot("HomePage\\P2", "P1_ipod");
+        allure_LogAttachment("TEST: Title and products contains " + searchedText, "HomePage\\P2", "P1_ipod");
         Assert.assertTrue(searched && searchedProductContains, "ERROR: Title or products not contains " + searchedText);
     }
 
@@ -48,27 +53,29 @@ public class P2_search  extends base {
         String searchedText = "Apple Cenema";
         homepage.search(searchedText);
 
-        String expectedSearch = "Apple";
+        String expectedSearch = "apple";
         boolean searched = searchPage.getSearch().contains(expectedSearch);
 
-        boolean searchedProductContains = searchPage.getProductName(searchPage.getProducts().get(1)).toLowerCase().contains(expectedSearch); // TODO need to handle out bound issue
-        System.out.println(searched);
-        System.out.println(searchedProductContains);
+        screenShot("HomePage\\P2", "P2_misspelled");
+        allure_LogAttachment("TEST: Title is correct, and showing products without misspelled", "HomePage\\P2", "P2_misspelled");
 
+        boolean searchedProductContains = searchPage.getProductName(searchPage.getProducts().get(1)).toLowerCase().contains(expectedSearch); // BUG - LA-6
         Assert.assertTrue(searched && searchedProductContains, "ERROR: Title or products not contains " + expectedSearch);
     }
 
 
 
     @Test
-    public void P5_randomLongString(){
+    public void P3_randomLongString(){
         // Expected Result: Get no results
-        String searchedText = "aggsagagwagagw"; // TODO create a function that create longString
+        String searchedText = randStr(40);
         homepage.search(searchedText);
 
         boolean searched = searchPage.getSearch().contains(searchedText);
-        boolean resulsZero = searchPage.getResults() == 0; // TODO create get results
+        boolean resulsZero = searchPage.getProductDescription(0).contains("no product");
 
+        screenShot("HomePage\\P2", "P3_randomLongString");
+        allure_LogAttachment("TEST: Title is correct, and showing no results", "HomePage\\P2", "P3_randomLongString");
         Assert.assertTrue(searched && resulsZero, "ERROR: Title not match to: " + searchedText + ", or products are found");
     }
 

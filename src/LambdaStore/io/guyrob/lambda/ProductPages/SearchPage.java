@@ -32,7 +32,8 @@ public class SearchPage extends base {
         return null;
     }
 
-    public int getResults() { // TODO create get results
-        return 0;
+    public String getProductDescription(int id) { // TODO fix when there are products (working on empty results)
+        System.out.println(driver.findElements(locate.SP_txt_Products_disc).get(id).getText());
+        return driver.findElements(locate.SP_txt_Products_disc).get(id).getText();
     }
 }

@@ -22,6 +22,7 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 public class base {
@@ -66,33 +67,6 @@ public class base {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-//
-//    private static void screenShota(String folder, String name) {
-//        try {
-//            File DestFile = new File("src\\ExtFiles\\screenShots\\" + folder + "\\" + name + ".png");
-//
-//            TakesScreenshot scrShot = ((TakesScreenshot) driver);
-//            File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
-//            FileUtils.copyFile(SrcFile, DestFile);
-//
-//        } catch (Exception e) {
-//            allure_FailLog("ERROR: Screenshot failed - " + e);
-//        }
-//    }
-
-    public void screenShota(String folder, String name) {
-        try {
-            File DestFile = new File("src\\ExtFiles\\screenShots\\" + folder + "\\" + name + ".png");
-
-            TakesScreenshot scrShot = ((TakesScreenshot) driver);
-            File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(SrcFile, DestFile);
-
-        } catch (Exception e) {
-            System.out.println("ERROR: Screenshot failed - " + e);
-            allure_FailLog("ERROR: Screenshot failed - " + e);
-        }
-    }
 
     public void screenShot(String folder, String name) {
         try {
@@ -133,6 +107,27 @@ public class base {
     public void clickElement(WebElement ele){
         actions = new Actions(driver);
         actions.click(ele).build().perform();
+    }
+
+    public static String randStr(int length) {
+        // Define the characters to be used in the random string
+        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+        // Create a Random object
+        Random random = new Random();
+
+        // Use StringBuilder to efficiently build the random string
+        StringBuilder sb = new StringBuilder(length);
+
+        // Generate random characters until the desired length is reached
+        for (int i = 0; i < length; i++) {
+            int randomIndex = random.nextInt(characters.length());
+            char randomChar = characters.charAt(randomIndex);
+            sb.append(randomChar);
+        }
+
+        // Convert StringBuilder to String and return
+        return sb.toString();
     }
 
     /** ============================

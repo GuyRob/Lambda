@@ -47,14 +47,14 @@ public class P1_sections extends base {
         allure_Log("Select top category");
         boolean isIndexDisplay = homepage.trnd_SelectIndex(1);
         screenShot("HomePage\\P1", "P1_trendingCategories");
-        allure_LogAttachment("Showing Top Category Page", "HomePage\\P1", "P1_trendingCategories");
+        allure_LogAttachment("Showing Top Trending Category Page", "HomePage\\P1", "P1_trendingCategories");
 
         boolean isUrlChanged = !(getCurrentURL()).equals(testdata.url);
         if (isUrlChanged){
             driver.navigate().back();
         }
 
-        allure_Log("TEST: Index and top category selected successfully");
+        allure_Log("TEST: Index display and navigated to trending category successfully");
         Assert.assertTrue(isIndexDisplay && isUrlChanged, "ERROR: Selecting index or top category failed");
     }
 
