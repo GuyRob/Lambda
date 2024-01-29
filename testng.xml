@@ -6,6 +6,7 @@
         <classes>
             <class name="P1_sections" />
             <class name="P2_search" />
+            <class name="P3_blog" />
 
             <!-- Add more class elements for other test classes -->
         </classes>

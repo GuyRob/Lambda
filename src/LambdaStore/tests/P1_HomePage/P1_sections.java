@@ -34,7 +34,7 @@ public class P1_sections extends base {
 
     @AfterClass
     public void afterClass() {
-//        driver.quit();
+        driver.quit();
     }
 
 
