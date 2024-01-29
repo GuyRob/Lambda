@@ -30,6 +30,32 @@ public class HomePage extends base {
         sleep(1000);
     }
 
+    public void topp_compareByName(String name) {
+        List<WebElement> products = driver.findElements(locate.HP_list_topp_Products);
+        for (WebElement ele : products){
+            if (ele.getText().contains(name)){
+
+                // visable check
+                    if (ele.isDisplayed()){
+                        hoverElement(ele);
+                        sleep(1000);
+                        ele.findElement(By.xpath(".//button[@title='Compare this Product']")).click();
+                        sleep(1000);
+                    }
+                }
+            }
+        }
+
+    public boolean topp_compareAlert_isDisplayed() {
+        try {
+            return driver.findElement(locate.HP_txt_topp_Alert).isDisplayed();
+        } catch (Exception e){
+            System.out.println("ERROR: Compare alert not displayed,  error - " + e.getMessage());
+            allure_FailLog("ERROR: Compare alert not displayed,  error - " + e.getMessage());
+            return false;
+        }
+    }
+
     // collection
     public boolean coll_SelectCategory(String categroyName) {
         sleep(1000);
@@ -61,14 +87,19 @@ public class HomePage extends base {
             hoverElement(selected);
             sleep(1000);
             driver.findElement(By.xpath(locate.HP_list_coll_Products+"["+i+"]"+"//button[@title='Quick view']")).click();
-            sleep(1000);
+            sleep(3000);
         }
     }
 
     public void coll_quickViewExit(){
-        waitVisibility(10, locate.HP_btn_coll_qv_Exit);
-        driver.findElement(locate.HP_btn_coll_qv_Exit).click();
-        sleep(1000);
+        try {
+            waitVisibility(10, locate.HP_btn_coll_qv_Exit);
+            driver.findElement(locate.HP_btn_coll_qv_Exit).click();
+            sleep(1000);
+        } catch (Exception e){
+            System.out.println("ERROR: Exit quick view failed");
+            allure_FailLog("ERROR: Exit quick view failed");
+        }
     }
 
 
@@ -81,6 +112,7 @@ public class HomePage extends base {
         sleep(2000);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
+
 
 
 }

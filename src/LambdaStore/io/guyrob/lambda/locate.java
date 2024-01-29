@@ -17,6 +17,9 @@ public class locate {
     public static By HP_list_topp_Products = By.xpath("//div[@id='mz-product-tab-37213259-0']//div[@role]");
     public static By HP_btn_topp_Next = By.xpath("//div[@id='mz-product-tab-37213259-0']//a[@class='swiper-button-next']");
 
+    public static By HP_txt_topp_Alert = By.xpath("//div[@role='alert']");
+
+
 
 
 
