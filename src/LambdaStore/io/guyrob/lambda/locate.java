@@ -35,4 +35,5 @@ public class locate {
     /** SearchPage */
     public static By SP_txt_Searched = By.xpath("//div[@id='product-search']//h1");
     public static By SP_list_Products = By.xpath("//div[@data-view_id='grid']//div[@class='product-thumb']");
+    public static By SP_txt_Products_disc = By.xpath("//div[@id='entry_212469']//p");
 }
