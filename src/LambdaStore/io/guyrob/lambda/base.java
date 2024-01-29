@@ -113,23 +113,6 @@ public class base {
         }
     }
 
-//    public static void takeScreenshot(String folderName, String fileName) {
-//        // Convert WebDriver object to TakesScreenshot
-//        TakesScreenshot screenshot = (TakesScreenshot) driver;
-//
-//        // Capture screenshot as File
-//        File sourceFile = screenshot.getScreenshotAs(OutputType.FILE);
-//
-//        try {
-//            // Save the screenshot to the specified folder and file
-//            String filePath = folderName + fileName;
-//            FileUtils.copyFile(sourceFile, new File(filePath));
-//            System.out.println("Screenshot captured and saved as " + filePath);
-//        } catch (Exception e) {
-//            System.out.println("Exception while taking screenshot: " + e.getMessage());
-//        }
-//    }
-
     /** Actions: */
     public void scroll_Element(WebElement ele){
         actions = new Actions(driver);

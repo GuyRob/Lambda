@@ -42,11 +42,10 @@ public class P1_sections extends base {
     @Test
     public void P1_trendingCategories(){
         allure_Log("Scrolling to trending section");
-        scroll_Element(driver.findElement(locate.HP_list_trnd_Categories));
+        scroll_Element(driver.findElement(locate.HP_list_trnd_Categories)); // BUG - LA-5
 
         allure_Log("Select top category");
         boolean isIndexDisplay = homepage.trnd_SelectIndex(1);
-//        takeScreenshot("HomePage\\P1", "P1_trendingCategories");
         screenShot("HomePage\\P1", "P1_trendingCategories");
         allure_LogAttachment("Showing Top Category Page", "HomePage\\P1", "P1_trendingCategories");
 
@@ -55,6 +54,7 @@ public class P1_sections extends base {
             driver.navigate().back();
         }
 
+        allure_Log("TEST: Index and top category selected successfully");
         Assert.assertTrue(isIndexDisplay && isUrlChanged, "ERROR: Selecting index or top category failed");
     }
 
@@ -69,8 +69,13 @@ public class P1_sections extends base {
         homepage.topp_Next();
 
 
-        allure_Log("Comparing HTC products"); // @TODO create function
+        allure_Log("Comparing HTC products");
+        homepage.topp_compareByName("HTC");
+        screenShot("HomePage\\P1", "P2_topProducts");
+        allure_LogAttachment("Products compare", "HomePage\\P1", "P2_topProducts");
 
+        allure_Log("TEST: Compare products alert displayed");
+        Assert.assertTrue(homepage.topp_compareAlert_isDisplayed());
     }
 
     @Test
@@ -81,20 +86,19 @@ public class P1_sections extends base {
 
         allure_Log("Selecting quick view product");
         homepage.coll_quickView(5);
-//        takeScreenshot("HomePage\\P1", "P3_collection");
-        screenShot("HomePage\\P1", "P3_collection"); // TODO need to check why not capturing screenshot
+        screenShot("HomePage\\P1", "P3_collection");
         allure_LogAttachment("Quick View Page", "HomePage\\P1", "P3_collection");
 
-        homepage.coll_quickViewExit();
+        allure_Log("TEST: Quick view displayed and exit successfully");
+        homepage.coll_quickViewExit(); // will fail if quick view not open
 
         allure_Log("Selecting category " + collection_Category);
         boolean isdCategoryDisplay = homepage.coll_SelectCategory(collection_Category);
         allure_Log("Clicking on next button");
         homepage.coll_Next();
 
+        allure_Log("TEST: Selected category and clicked next successfully");
         Assert.assertTrue(isdCategoryDisplay &&  homepage.coll_PrevIsDisaplyed(), "ERROR: Category or Next button failed");
-
-
     }
 
 
