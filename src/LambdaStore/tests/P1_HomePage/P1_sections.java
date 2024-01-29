@@ -46,7 +46,9 @@ public class P1_sections extends base {
 
         allure_Log("Select top category");
         boolean isIndexDisplay = homepage.trnd_SelectIndex(1);
-        allure_LogAttachment("Top Category Page", "HomePage\\P1", "P1_trendingCategories");
+//        takeScreenshot("HomePage\\P1", "P1_trendingCategories");
+        screenShot("HomePage\\P1", "P1_trendingCategories");
+        allure_LogAttachment("Showing Top Category Page", "HomePage\\P1", "P1_trendingCategories");
 
         boolean isUrlChanged = !(getCurrentURL()).equals(testdata.url);
         if (isUrlChanged){
@@ -79,7 +81,10 @@ public class P1_sections extends base {
 
         allure_Log("Selecting quick view product");
         homepage.coll_quickView(5);
-        allure_LogAttachment("Collection Quick View", "HomePage\\P1", "P3_collection_View"); // @TODO need to check why not capturing  
+//        takeScreenshot("HomePage\\P1", "P3_collection");
+        screenShot("HomePage\\P1", "P3_collection"); // TODO need to check why not capturing screenshot
+        allure_LogAttachment("Quick View Page", "HomePage\\P1", "P3_collection");
+
         homepage.coll_quickViewExit();
 
         allure_Log("Selecting category " + collection_Category);

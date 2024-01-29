@@ -66,8 +66,21 @@ public class base {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+//
+//    private static void screenShota(String folder, String name) {
+//        try {
+//            File DestFile = new File("src\\ExtFiles\\screenShots\\" + folder + "\\" + name + ".png");
+//
+//            TakesScreenshot scrShot = ((TakesScreenshot) driver);
+//            File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
+//            FileUtils.copyFile(SrcFile, DestFile);
+//
+//        } catch (Exception e) {
+//            allure_FailLog("ERROR: Screenshot failed - " + e);
+//        }
+//    }
 
-    private static void screenShot(String folder, String name) {
+    public void screenShota(String folder, String name) {
         try {
             File DestFile = new File("src\\ExtFiles\\screenShots\\" + folder + "\\" + name + ".png");
 
@@ -76,9 +89,47 @@ public class base {
             FileUtils.copyFile(SrcFile, DestFile);
 
         } catch (Exception e) {
+            System.out.println("ERROR: Screenshot failed - " + e);
             allure_FailLog("ERROR: Screenshot failed - " + e);
         }
     }
+
+    public void screenShot(String folder, String name) {
+        try {
+            File screenshotsFolder = new File("src\\ExtFiles\\screenShots\\" + folder);
+            if (!screenshotsFolder.exists()) {
+                screenshotsFolder.mkdirs(); // Create the folder if it doesn't exist
+            }
+
+            File destFile = new File(screenshotsFolder, name + ".png");
+
+            TakesScreenshot scrShot = ((TakesScreenshot) driver);
+            File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(srcFile, destFile);
+
+        } catch (Exception e) {
+            System.out.println("ERROR: Screenshot failed - " + e.getMessage());
+            allure_FailLog("ERROR: Screenshot failed - " + e.getMessage());
+        }
+    }
+
+//    public static void takeScreenshot(String folderName, String fileName) {
+//        // Convert WebDriver object to TakesScreenshot
+//        TakesScreenshot screenshot = (TakesScreenshot) driver;
+//
+//        // Capture screenshot as File
+//        File sourceFile = screenshot.getScreenshotAs(OutputType.FILE);
+//
+//        try {
+//            // Save the screenshot to the specified folder and file
+//            String filePath = folderName + fileName;
+//            FileUtils.copyFile(sourceFile, new File(filePath));
+//            System.out.println("Screenshot captured and saved as " + filePath);
+//        } catch (Exception e) {
+//            System.out.println("Exception while taking screenshot: " + e.getMessage());
+//        }
+//    }
+
     /** Actions: */
     public void scroll_Element(WebElement ele){
         actions = new Actions(driver);
@@ -109,7 +160,6 @@ public class base {
     }
 
     public static void allure_LogAttachment(String info, String folder, String name) {
-        screenShot(folder, name);
         String imagePath = "src\\ExtFiles\\screenShots\\" + folder + "\\" + name + ".png";
         Path imageFilePath = Paths.get(imagePath);
 
@@ -120,7 +170,8 @@ public class base {
                 e.printStackTrace();
             }
         } else {
-            allure_FailLog("Image file not found or not readable.");
+            System.out.println("ERROR: Image file not found or not readable.");
+            allure_FailLog("ERROR: Image file not found or not readable.");
         }
     }
 

@@ -7,6 +7,9 @@ import org.openqa.selenium.By;
 
 public class locate {
     /** HomePage */
+    // search
+    public static By HP_inp_Search = By.xpath("//div[@id='main-header']//input[@name='search']");
+    public static By HP_btn_Search = By.xpath("//div[@id='main-header']//div[@class='search-button']//button");
     // top trending
     public static By HP_list_trnd_Categories = By.xpath("//div[@id='mz-category-wall74213250']//div[@role]");
 
@@ -26,4 +29,7 @@ public class locate {
 
     public static By HP_btn_coll_qv_Exit = By.xpath("//div[@id='quick-view']//button[@aria-label='close']");
 
+    /** SearchPage */
+    public static By SP_txt_Searched = By.xpath("//div[@id='product-search']//h1");
+    public static By SP_list_Products = By.xpath("//div[@data-view_id='grid']//div[@class='product-thumb']");
 }

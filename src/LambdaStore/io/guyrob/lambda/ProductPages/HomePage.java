@@ -68,14 +68,18 @@ public class HomePage extends base {
     public void coll_quickViewExit(){
         waitVisibility(10, locate.HP_btn_coll_qv_Exit);
         driver.findElement(locate.HP_btn_coll_qv_Exit).click();
-//        clickElement(driver.findElement(locate.HP_btn_coll_qv_Exit));
         sleep(1000);
     }
 
 
     // search
     public void search(String text) {
-
+        driver.findElement(locate.HP_inp_Search).click();
+        sleep(1000);
+        driver.findElement(locate.HP_inp_Search).sendKeys(text);
+        driver.findElement(locate.HP_btn_Search).click();
+        sleep(2000);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
 
