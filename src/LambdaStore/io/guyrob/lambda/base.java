@@ -40,11 +40,7 @@ public class base {
         return driver.getCurrentUrl().toLowerCase();
     }
 
-    public WebElement getParentElement(WebElement son) {
-        WebElement parentAnchor = (WebElement) ((JavascriptExecutor) driver).executeScript(
-                "return arguments[0].parentNode;", son);
-        return parentAnchor;
-    }
+
 
     public void sleep(int time) {
         try {
@@ -85,6 +81,22 @@ public class base {
             System.out.println("ERROR: Screenshot failed - " + e.getMessage());
             allure_FailLog("ERROR: Screenshot failed - " + e.getMessage());
         }
+    }
+
+    /** Javascript cmds */
+    public WebElement getParentElement(WebElement son) {
+        WebElement parentAnchor = (WebElement) ((JavascriptExecutor) driver).executeScript(
+                "return arguments[0].parentNode;", son);
+        return parentAnchor;
+    }
+
+    public void scrollToExactValue(WebElement element, int value) {
+        clickElement(element);
+        sleep(2000);
+
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].style.left = arguments[1] + '%';", element, value);
+        clickElement(element);
     }
 
     /** Actions: */

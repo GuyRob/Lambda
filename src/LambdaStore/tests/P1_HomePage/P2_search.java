@@ -51,6 +51,7 @@ public class P2_search  extends base {
     public void P2_misspelled(){
         // Expected result: Suggestions for correct spelling or display of results matching the closest query.
         String searchedText = "Apple Cenema";
+        allure_Log("Search " + searchedText);
         homepage.search(searchedText);
 
         String expectedSearch = "apple";
@@ -69,6 +70,7 @@ public class P2_search  extends base {
     public void P3_randomLongString(){
         // Expected Result: Get no results
         String searchedText = randStr(40);
+        allure_Log("Search " + searchedText);
         homepage.search(searchedText);
 
         boolean searched = searchPage.getSearch().contains(searchedText);

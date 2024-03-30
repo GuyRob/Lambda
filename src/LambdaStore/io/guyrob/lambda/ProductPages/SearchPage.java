@@ -9,7 +9,11 @@ import java.util.List;
 
 public class SearchPage extends base {
     public String getSearch(){
-        return driver.findElement(locate.SP_txt_Searched).getText();
+        return driver.findElement(locate.SP_txt_SearchedResult).getText();
+    }
+
+    public String getTitle(){
+        return driver.findElement(locate.SP_txt_Title).getText();
     }
 
     public List<WebElement> getProducts() {

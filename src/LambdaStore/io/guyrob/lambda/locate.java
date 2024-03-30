@@ -7,6 +7,12 @@ import org.openqa.selenium.By;
 
 public class locate {
     /** HomePage */
+    // menu (top bar)
+    public static By HP_btn_ShopCategory = By.id("entry_217832");
+
+    public static By HP_list_shop_Categories = By.xpath("//div[@data-id='217841']//li/a");
+
+
     // search
     public static By HP_inp_Search = By.xpath("//div[@id='main-header']//input[@name='search']");
     public static By HP_btn_Search = By.xpath("//div[@id='main-header']//div[@class='search-button']//button");
@@ -19,10 +25,6 @@ public class locate {
 
     public static By HP_txt_topp_Alert = By.xpath("//div[@role='alert']");
 
-
-
-
-
     // collection
     public static By HP_list_coll_Categories = By.xpath("//div[@id='entry_213264']//li[@class='nav-item']");
     public static By HP_btn_coll_Next = By.xpath("//div[@id='entry_213264']//a[@class='mz-swiper-nav-next']");
@@ -32,16 +34,22 @@ public class locate {
 
     public static By HP_btn_coll_qv_Exit = By.xpath("//div[@id='quick-view']//button[@aria-label='close']");
 
-    // blog
+    // blogs section
     public static By HP_list_blog_Categories = By.xpath("//div[@id='mz-article-tab-73213272-0']//div[@role]");
 
     /** SearchPage */
-    public static By SP_txt_Searched = By.xpath("//div[@id='product-search']//h1");
+    public static By SP_txt_SearchedResult = By.xpath("//div[@id='product-search']//h1");
     public static By SP_list_Products = By.xpath("//div[@data-view_id='grid']//div[@class='product-thumb']");
     public static By SP_txt_Products_disc = By.xpath("//div[@id='entry_212469']//p");
 
+    public static By SP_txt_Title = By.xpath("//div[@data-id='212392']/h1");
+
+    // Filters
+    public static By SP_btn_filter_MaxPrice = By.xpath("//div[@id='mz-filter-panel-0-0']//span[2]");
+
+
     /** ProductPage*/
-    public static By PP_txt_category = By.xpath("//ol[@class='breadcrumb']");
+    public static By PP_txt_ProductBreadcrumb = By.xpath("//ol[@class='breadcrumb']");
 
     // blog
     public static By PP_btn_blog_ReadMore = By.xpath("//div[@id='article-article']//a[@href='#']");
@@ -50,6 +58,7 @@ public class locate {
     public static By PP_inp_blog_cmd_mail = By.xpath("//form[@id='form-comment']//input[@name='email']");
     public static By PP_btn_blog_cmd = By.id("button-comment");
 
-
     public static By PP_txt_blog_CommentApproval = By.xpath("//div[@class='alert alert-success alert-dismissible']");
+
+
 }

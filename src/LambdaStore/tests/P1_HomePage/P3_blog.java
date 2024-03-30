@@ -33,7 +33,7 @@ public class P3_blog extends base {
 
     @AfterClass
     public void afterClass() {
-//        driver.quit();
+        driver.quit();
     }
 
     @Test
@@ -62,11 +62,6 @@ public class P3_blog extends base {
         screenShot("HomePage\\P3", "P2_readMoreAndPost");
         allure_LogAttachment("TEST: Read more button not appears, leaved a comment successfully", "HomePage\\P3", "P2_readMoreAndPost");
         Assert.assertTrue(driver.findElement(locate.PP_txt_blog_CommentApproval).isDisplayed(), "ERROR: Comment not submitted");
-    }
-
-    @Test
-    public void P3_viewCommentAndReplies(){
-        // View replies (1), and view all comments
     }
 
 }
