@@ -6,7 +6,7 @@ import io.guyrob.lambda.locate;
 public class ProductPage extends base {
 
     public String getCategory(){
-        return driver.findElement(locate.PP_txt_category).getText();
+        return driver.findElement(locate.PP_txt_ProductBreadcrumb).getText();
     }
 
 

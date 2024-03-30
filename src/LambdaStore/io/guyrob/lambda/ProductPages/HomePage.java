@@ -71,7 +71,7 @@ public class HomePage extends base {
 
     public void coll_Next() {
         clickElement(driver.findElement(locate.HP_btn_coll_Next));
-        sleep(1000);
+        sleep(2000);
     }
 
     public boolean coll_PrevIsDisaplyed() {
@@ -117,13 +117,34 @@ public class HomePage extends base {
     // blog
     public boolean blog_SelectIndex(int i) {
         sleep(1000);
-        List<WebElement> categories = driver.findElements(locate.HP_list_blog_Categories);
-        if(categories.get(i-1).isDisplayed()) {
-            categories.get(i - 1).click();
+        List<WebElement> blog_categories = driver.findElements(locate.HP_list_blog_Categories);
+        if(blog_categories.get(i-1).isDisplayed()) {
+            blog_categories.get(i - 1).click();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             return true;
         } else {
             return false;
+        }
+    }
+
+    /** Menu (Top bar)*/
+    public void shopCategory_index(int categoryIndex) {
+        driver.findElement(locate.HP_btn_ShopCategory).click();
+        sleep(1000);
+        List<WebElement> shop_categories = driver.findElements(locate.HP_list_shop_Categories);
+        shop_categories.get(categoryIndex-1).click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    public void shopCategory_name(String categoryName) {
+        driver.findElement(locate.HP_btn_ShopCategory).click();
+        sleep(1000);
+        List<WebElement> shop_categories = driver.findElements(locate.HP_list_shop_Categories);
+        for(WebElement ele : shop_categories){
+            if(ele.getText().contains(categoryName)){
+                ele.click();
+                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            }
         }
     }
 

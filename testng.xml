@@ -14,6 +14,7 @@
 
     <test name="P2_Products">
         <classes>
+            <class name="P1_categories" />
 
             <!-- Add more class elements for other test classes -->
         </classes>
