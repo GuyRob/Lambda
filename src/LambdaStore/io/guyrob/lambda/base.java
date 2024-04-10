@@ -90,14 +90,7 @@ public class base {
         return parentAnchor;
     }
 
-    public void scrollToExactValue(WebElement element, int value) {
-        clickElement(element);
-        sleep(2000);
 
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("arguments[0].style.left = arguments[1] + '%';", element, value);
-        clickElement(element);
-    }
 
     /** Actions: */
     public void scroll_Element(WebElement ele){

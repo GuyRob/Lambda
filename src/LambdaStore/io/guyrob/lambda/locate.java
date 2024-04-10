@@ -38,14 +38,19 @@ public class locate {
     public static By HP_list_blog_Categories = By.xpath("//div[@id='mz-article-tab-73213272-0']//div[@role]");
 
     /** SearchPage */
-    public static By SP_txt_SearchedResult = By.xpath("//div[@id='product-search']//h1");
+    public static By SP_txt_SearchedTextResult = By.xpath("//div[@id='product-search']//h1");
     public static By SP_list_Products = By.xpath("//div[@data-view_id='grid']//div[@class='product-thumb']");
     public static By SP_txt_Products_disc = By.xpath("//div[@id='entry_212469']//p");
 
     public static By SP_txt_Title = By.xpath("//div[@data-id='212392']/h1");
 
+    public static By SP_txt_totalProducts = By.xpath("//div[@class='col-sm-6 text-right']");
+
+
     // Filters
-    public static By SP_btn_filter_MaxPrice = By.xpath("//div[@id='mz-filter-panel-0-0']//span[2]");
+    public static By SP_btn_filter_PriceScrollMaxValue = By.xpath("//div[@id='mz-filter-panel-0-0']//span[2]");
+    public static By SP_inp_filter_PriceMaxValue = By.xpath("//div[@id='mz-filter-content-0']//input[@placeholder='Maximum Price']");
+
 
 
     /** ProductPage*/
