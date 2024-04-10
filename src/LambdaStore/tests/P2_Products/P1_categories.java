@@ -47,7 +47,7 @@ public class P1_categories extends base {
 
     @Test
     public void P2_phoneAndTablets(){
-        // Bug - Check title contains phone and tablets
+        // Bug - LA-10 - Check title contains phone and tablets
         int tabletIndex = 3;
         String tabletCategoryName = "phone, tablets & ipod";
 
@@ -56,12 +56,12 @@ public class P1_categories extends base {
 
         screenShot("Products\\P1", "P2_phoneAndTablets");
         allure_LogAttachment("TEST: Title contains " + tabletCategoryName, "Products\\P1", "P2_phoneAndTablets");
-        Assert.assertEquals(searchPage.getTitle().toLowerCase(), tabletCategoryName); // BUG - LA-10
+        Assert.assertEquals(searchPage.getTitle().toLowerCase(), tabletCategoryName);
     }
 
     @Test
     public void P3_gamingConsole(){
-        // Bug - not leads to any category
+        // Bug - LA-11 - not leads to any category
         int tabletIndex = 14;
         String tabletCategoryName = "gaming consoles";
 
@@ -70,7 +70,7 @@ public class P1_categories extends base {
 
         screenShot("Products\\P1", "P3_gamingConsole");
         allure_LogAttachment("TEST: Title contains " + tabletCategoryName, "Products\\P1", "P3_gamingConsole");
-        Assert.assertEquals(searchPage.getTitle().toLowerCase(), tabletCategoryName); // BUG - LA-11
+        Assert.assertEquals(searchPage.getTitle().toLowerCase(), tabletCategoryName);
     }
 
 }

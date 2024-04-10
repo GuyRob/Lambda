@@ -1,24 +1,25 @@
 
 import io.guyrob.lambda.ProductPages.HomePage;
+import io.guyrob.lambda.ProductPages.SearchPage;
 import io.guyrob.lambda.base;
 import io.guyrob.lambda.locate;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.*;
 import tests.testdata;
 
 import java.util.concurrent.TimeUnit;
 
 public class P2_filters extends base {
     HomePage homepage;
+    SearchPage searchPage;
 
-    @BeforeClass
-    public void beforeClass(){
+    @BeforeMethod
+    public void beforeMethod(){
         driver = new ChromeDriver();
         homepage = new HomePage();
+        searchPage = new SearchPage();
 
         driver.manage().window().maximize();
         driver.get(testdata.url);
@@ -29,19 +30,23 @@ public class P2_filters extends base {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @AfterClass
-    public void afterClass() {
-//        driver.quit();
+    @AfterMethod
+    public void afterMethod() {
+        driver.quit();
     }
 
     @Test
     public void P1_price(){
-        int maxPrice = 50; // for tests - using 50%, required is 121
-        allure_Log("Filter by max price of " + maxPrice);
+        int maxPricePercentage = 10;
+        int initalResults = searchPage.getTotalProducts();
 
-        WebElement filterMaxPrice = driver.findElement(locate.SP_btn_filter_MaxPrice);
-        scrollToExactValue(filterMaxPrice, maxPrice);
+        allure_Log("Filter by max price of " + maxPricePercentage + "%");
+        WebElement filterMaxPrice = driver.findElement(locate.SP_btn_filter_PriceScrollMaxValue);
+        searchPage.filter_scrollToExactValue(filterMaxPrice, maxPricePercentage);
 
+        screenShot("Products\\P2", "P1_price");
+        allure_LogAttachment("TEST: Filtering max price successfully", "Products\\P2", "P1_price");
+        Assert.assertTrue(initalResults > searchPage.getTotalProducts(), "ERROR: not filtered by price");
     }
 
     @Test
