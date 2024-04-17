@@ -51,6 +51,10 @@ public class locate {
     public static By SP_btn_filter_PriceScrollMaxValue = By.xpath("//div[@id='mz-filter-panel-0-0']//span[2]");
 //    public static By SP_inp_filter_PriceMaxValue = By.xpath("//div[@id='mz-filter-content-0']//input[@placeholder='Maximum Price']");
     public static By SP_list_filter_Manufacturer = By.xpath("//div[@id='mz-filter-panel-0-1']//label");
+    public static By SP_list_filter_Color = By.xpath("//div[@id='mz-filter-panel-0-4']//label//img");
+    public static By SP_list_filter_Stock = By.xpath("//div[@id='mz-filter-panel-0-5']//label");
+
+
 
 
 
