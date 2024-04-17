@@ -79,4 +79,30 @@ public class SearchPage extends base {
         }
     }
 
+    public void filter_color_ByName(String selectedColor) {
+        List<WebElement> colors = driver.findElements(locate.SP_list_filter_Color);
+        for (WebElement ele : colors){
+            if (ele.getAttribute("alt").contains(selectedColor)){
+                scroll_Element(ele);
+                ele.click();
+                sleep(3000);
+                break;
+            }
+        }
+
+    }
+
+    public void filter_stock_ByName(String selectedStock) {
+        List<WebElement> stocks = driver.findElements(locate.SP_list_filter_Stock);
+        for (WebElement ele : stocks){
+            if (ele.getText().contains(selectedStock)){
+                scroll_Element(ele);
+                ele.click();
+                sleep(3000);
+                break;
+            }
+        }
+
+    }
+
 }

@@ -41,12 +41,13 @@ public class P1_sections extends base {
 
     @Test
     public void P1_trendingCategories(){
+        // BUG - LA-5
         allure_Log("Scrolling to trending section");
-        scroll_Element(driver.findElement(locate.HP_list_trnd_Categories)); // BUG - LA-5
+        scroll_Element(driver.findElement(locate.HP_list_trnd_Categories));
 
         allure_Log("Select top category");
         boolean isIndexDisplay = homepage.trnd_SelectIndex(1);
-        screenShot("HomePage\\P1", "P1_trendingCategories");
+        screenShot("HomePage\\P1", "P1_trendingCategories"); // TODO fix screenshot issue on this class
         allure_LogAttachment("Showing Top Trending Category Page", "HomePage\\P1", "P1_trendingCategories");
 
         boolean isUrlChanged = !(getCurrentURL()).equals(testdata.url);
@@ -90,7 +91,7 @@ public class P1_sections extends base {
         allure_LogAttachment("Quick View Page", "HomePage\\P1", "P3_collection");
 
         allure_Log("TEST: Quick view displayed and exit successfully");
-        homepage.coll_quickViewExit(); // will fail if quick view not open
+        homepage.coll_quickViewExit(); // will fail if quick view not open @todo need to check why failing
 
         allure_Log("Selecting category " + collection_Category);
         boolean isdCategoryDisplay = homepage.coll_SelectCategory(collection_Category);

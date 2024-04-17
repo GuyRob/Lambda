@@ -45,7 +45,7 @@ public class P2_filters extends base {
         searchPage.filter_price_scrollToExactValue(filterMaxPrice, maxPricePercentage);
 
         screenShot("Products\\P2", "P1_price");
-        allure_LogAttachment("TEST: Filtering max price successfully", "Products\\P2", "P1_price");
+        allure_LogAttachment("TEST: Filtering max price", "Products\\P2", "P1_price");
         Assert.assertTrue(initalResults > searchPage.getTotalProducts(), "ERROR: not filtered by price");
     }
 
@@ -58,17 +58,33 @@ public class P2_filters extends base {
         searchPage.filter_manu_ByName(selectedManufacturer);
 
         screenShot("Products\\P2", "P2_manufacturer");
-        allure_LogAttachment("TEST: Filtering manufacturer successfully", "Products\\P2", "P2_manufacturer");
+        allure_LogAttachment("TEST: Filtering manufacturer", "Products\\P2", "P2_manufacturer");
         Assert.assertTrue(initalResults > searchPage.getTotalProducts(), "ERROR: not filtered by manufacturer");
     }
 
     @Test
     public void P3_color(){
+        String selectedColor = "Red";
+        int initalResults = searchPage.getTotalProducts();
 
+        allure_Log("Filter by color " + selectedColor);
+        searchPage.filter_color_ByName(selectedColor);
+
+        screenShot("Products\\P2", "P3_color");
+        allure_LogAttachment("TEST: Filtering color", "Products\\P2", "P3_color");
+        Assert.assertTrue(initalResults > searchPage.getTotalProducts(), "ERROR: not filtered by color");
     }
 
     @Test
     public void P4_availability(){
+        String selectedStock = "Out Of Stock";
+        int initalResults = searchPage.getTotalProducts();
 
+        allure_Log("Filter by stock " + selectedStock);
+        searchPage.filter_stock_ByName(selectedStock);
+
+        screenShot("Products\\P2", "P4_availability");
+        allure_LogAttachment("TEST: Filtering stock", "Products\\P2", "P4_availability");
+        Assert.assertTrue(initalResults > searchPage.getTotalProducts(), "ERROR: not filtered by stock");
     }
 }
