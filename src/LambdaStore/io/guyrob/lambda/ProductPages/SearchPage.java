@@ -43,8 +43,21 @@ public class SearchPage extends base {
         return driver.findElements(locate.SP_txt_Products_disc).get(id).getText();
     }
 
+    public int getTotalProducts() {
+        String totalResults = driver.findElement(locate.SP_txt_totalProducts).getText();
+        // Find the starting index of the total count
+        int startIndex = totalResults.lastIndexOf("of") + 3;
+        // Find the ending index of the total count (assuming no digits after)
+        int endIndex = totalResults.indexOf(" ", startIndex);
+        endIndex = endIndex == -1 ? totalResults.length() : endIndex;  // Handle no space after number
+        // Extract the total count
+        int total = Integer.parseInt(totalResults.substring(startIndex, endIndex));
+
+        return total;
+    }
+
     /** Filters */
-    public void filter_scrollToExactValue(WebElement element, int percentage) {
+    public void filter_price_scrollToExactValue(WebElement element, int percentage) {
         scroll_Element(element);
         actions = new Actions(driver);
         actions.clickAndHold(element).build().perform();
@@ -54,16 +67,16 @@ public class SearchPage extends base {
         sleep(3000);
     }
 
-    public int getTotalProducts() {
-        String totalResults = driver.findElement(locate.SP_txt_totalProducts).getText();
-    // Find the starting index of the total count
-        int startIndex = totalResults.lastIndexOf("of") + 3;
-    // Find the ending index of the total count (assuming no digits after)
-        int endIndex = totalResults.indexOf(" ", startIndex);
-        endIndex = endIndex == -1 ? totalResults.length() : endIndex;  // Handle no space after number
-    // Extract the total count
-        int total = Integer.parseInt(totalResults.substring(startIndex, endIndex));
-
-        return total;
+    public void filter_manu_ByName(String manufacturerName) {
+        List<WebElement> manufacturers = driver.findElements(locate.SP_list_filter_Manufacturer);
+        for (WebElement ele : manufacturers){
+            if (ele.getText().contains(manufacturerName)){
+                scroll_Element(ele);
+                ele.click();
+                sleep(3000);
+                break;
+            }
+        }
     }
+
 }

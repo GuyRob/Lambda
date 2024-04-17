@@ -42,7 +42,7 @@ public class P2_filters extends base {
 
         allure_Log("Filter by max price of " + maxPricePercentage + "%");
         WebElement filterMaxPrice = driver.findElement(locate.SP_btn_filter_PriceScrollMaxValue);
-        searchPage.filter_scrollToExactValue(filterMaxPrice, maxPricePercentage);
+        searchPage.filter_price_scrollToExactValue(filterMaxPrice, maxPricePercentage);
 
         screenShot("Products\\P2", "P1_price");
         allure_LogAttachment("TEST: Filtering max price successfully", "Products\\P2", "P1_price");
@@ -51,7 +51,15 @@ public class P2_filters extends base {
 
     @Test
     public void P2_manufacturer(){
+        String selectedManufacturer = "Canon";
+        int initalResults = searchPage.getTotalProducts();
 
+        allure_Log("Filter by manufacturer " + selectedManufacturer);
+        searchPage.filter_manu_ByName(selectedManufacturer);
+
+        screenShot("Products\\P2", "P2_manufacturer");
+        allure_LogAttachment("TEST: Filtering manufacturer successfully", "Products\\P2", "P2_manufacturer");
+        Assert.assertTrue(initalResults > searchPage.getTotalProducts(), "ERROR: not filtered by manufacturer");
     }
 
     @Test
