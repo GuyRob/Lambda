@@ -105,4 +105,22 @@ public class SearchPage extends base {
 
     }
 
+    /** Layout */
+
+    public void layout_viewType(int i) {
+        List <WebElement> viewTypes = driver.findElements(locate.SP_list_layout_viewTypes);
+        scroll_XY(0, 400);
+        viewTypes.get(i).click();
+        sleep(1000);
+    }
+
+    public boolean viewTypeListPresent() {
+        try {
+            return driver.findElement(locate.SP_list_Products_viewTypeList).isDisplayed();
+        } catch (Exception e){
+            System.out.println("ERROR: View type is not list,  error - " + e.getMessage());
+            allure_FailLog("ERROR: View type is not list,  error - " + e.getMessage());
+            return false;
+        }
+    }
 }

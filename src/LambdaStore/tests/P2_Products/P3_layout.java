@@ -1,11 +1,10 @@
-package tests.P2_Products;
 
 import io.guyrob.lambda.ProductPages.HomePage;
+import io.guyrob.lambda.ProductPages.SearchPage;
 import io.guyrob.lambda.base;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.*;
 import tests.testdata;
 
 import java.util.concurrent.TimeUnit;
@@ -13,33 +12,42 @@ import java.util.concurrent.TimeUnit;
 public class P3_layout extends base {
 
     HomePage homepage;
+    SearchPage searchPage;
 
-    @BeforeClass
-    public void beforeClass(){
+    // Test data
+    int categoryId = 7;
+
+
+    @BeforeMethod
+    public void beforeMethod(){
         driver = new ChromeDriver();
         homepage = new HomePage();
+        searchPage = new SearchPage();
 
         driver.manage().window().maximize();
         driver.get(testdata.url);
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+        allure_Log("Select category by index " + categoryId);
+        homepage.shopCategory_index(categoryId);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @AfterClass
-    public void afterClass() {
-//        driver.quit();
-    }
-
-    @Test
-    public void P1_searchAndCriteria(){
-        // Bug - search "a" and add criteria: sub category and search - expected: to show less results but showing the same amount
+    @AfterMethod
+    public void afterMethod() {
+        driver.quit();
     }
 
     @Test
-    public void P2_viewType(){
-        // Switch between List and Grid
+    public void P1_viewType(){
+        allure_Log("Switching between view type Grid to List");
+        searchPage.layout_viewType(1);
+
+        screenShot("Products\\P3", "P1_viewType");
+        allure_LogAttachment("TEST: Switched to List", "Products\\P3", "P1_viewType");
+        Assert.assertTrue(searchPage.viewTypeListPresent(), "ERROR: not switched to List");
     }
+
 
     @Test
     public void P2_showResults(){

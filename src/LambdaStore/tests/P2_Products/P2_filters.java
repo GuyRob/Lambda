@@ -15,6 +15,12 @@ public class P2_filters extends base {
     HomePage homepage;
     SearchPage searchPage;
 
+    // Test data
+    int categoryId = 6;
+    int maxPricePercentage = 10;
+    String selectedColor = "Red";
+    String selectedStock = "Out Of Stock";
+
     @BeforeMethod
     public void beforeMethod(){
         driver = new ChromeDriver();
@@ -25,8 +31,8 @@ public class P2_filters extends base {
         driver.get(testdata.url);
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        allure_Log("Select category by index " + 6);
-        homepage.shopCategory_index(6);
+        allure_Log("Select category by index " + categoryId);
+        homepage.shopCategory_index(categoryId);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
@@ -37,7 +43,6 @@ public class P2_filters extends base {
 
     @Test
     public void P1_price(){
-        int maxPricePercentage = 10;
         int initalResults = searchPage.getTotalProducts();
 
         allure_Log("Filter by max price of " + maxPricePercentage + "%");
@@ -64,7 +69,6 @@ public class P2_filters extends base {
 
     @Test
     public void P3_color(){
-        String selectedColor = "Red";
         int initalResults = searchPage.getTotalProducts();
 
         allure_Log("Filter by color " + selectedColor);
@@ -77,7 +81,6 @@ public class P2_filters extends base {
 
     @Test
     public void P4_availability(){
-        String selectedStock = "Out Of Stock";
         int initalResults = searchPage.getTotalProducts();
 
         allure_Log("Filter by stock " + selectedStock);

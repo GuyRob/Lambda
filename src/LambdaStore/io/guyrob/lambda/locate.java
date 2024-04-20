@@ -12,10 +12,10 @@ public class locate {
 
     public static By HP_list_shop_Categories = By.xpath("//div[@data-id='217841']//li/a");
 
-
     // search
     public static By HP_inp_Search = By.xpath("//div[@id='main-header']//input[@name='search']");
     public static By HP_btn_Search = By.xpath("//div[@id='main-header']//div[@class='search-button']//button");
+
     // top trending
     public static By HP_list_trnd_Categories = By.xpath("//div[@id='mz-category-wall74213250']//div[@role]");
 
@@ -46,17 +46,16 @@ public class locate {
 
     public static By SP_txt_totalProducts = By.xpath("//div[@class='col-sm-6 text-right']");
 
+    public static By SP_list_Products_viewTypeList = By.xpath("//div[@class='product-layout product-list col-12']");
 
     // Filters
     public static By SP_btn_filter_PriceScrollMaxValue = By.xpath("//div[@id='mz-filter-panel-0-0']//span[2]");
-//    public static By SP_inp_filter_PriceMaxValue = By.xpath("//div[@id='mz-filter-content-0']//input[@placeholder='Maximum Price']");
     public static By SP_list_filter_Manufacturer = By.xpath("//div[@id='mz-filter-panel-0-1']//label");
     public static By SP_list_filter_Color = By.xpath("//div[@id='mz-filter-panel-0-4']//label//img");
     public static By SP_list_filter_Stock = By.xpath("//div[@id='mz-filter-panel-0-5']//label");
 
-
-
-
+    // Layout
+    public static By SP_list_layout_viewTypes = By.xpath("//div[@data-id='212399']//button");
 
 
     /** ProductPage*/
@@ -70,6 +69,7 @@ public class locate {
     public static By PP_btn_blog_cmd = By.id("button-comment");
 
     public static By PP_txt_blog_CommentApproval = By.xpath("//div[@class='alert alert-success alert-dismissible']");
+
 
 
 }
