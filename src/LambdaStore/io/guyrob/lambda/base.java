@@ -48,6 +48,7 @@ public class base {
             Thread.sleep(time);
         } catch (Exception e) {
             allure_FailLog("Exception: " + e);
+            System.out.println("Exception: " + e);
         }
     }
 
